@@ -1,14 +1,8 @@
 <html>
 <body>
-<h2>Hello!Make a choice!</h2>
-<h1 align="left">Product!</h1>
-<p>
-    <form action="listP">
-<p><input type="submit" value="ShowAllProduct"></p>
-</form>
-<h1 align="left">Manufacturer!</h1>
-<p>
-    <form action="listM">
-<p><input type="submit" value="ShowAllManufacturer"></p>
+<h2>Hello!Go to "welcome" page</h2>
+<form action="welcome">
+    <p><input type="submit" value="Welcome"></p>
+    </form>
 </body>
 </html>

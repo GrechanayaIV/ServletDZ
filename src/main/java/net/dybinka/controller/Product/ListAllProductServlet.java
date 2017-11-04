@@ -37,6 +37,9 @@ public class ListAllProductServlet extends HttpServlet {
         }
         String addProductLink = "<form action=\"addP\">\n" +
                 "<p><input type=\"submit\" value=\"AddNewProduct\"></p>";
-        resp.getWriter().println(addProductLink);
+
+        String welcomePageText = "<a href=\"/welcome\">WelcomePage</a>";
+
+        resp.getWriter().println(addProductLink + "<br>" + welcomePageText);
     }
 }

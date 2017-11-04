@@ -38,7 +38,11 @@ public class ListAllManufacturerServlet extends HttpServlet {
         }
         String addManufacturerLink = "<form action=\"addM\">\n" +
                 "<p><input type=\"submit\" value=\"AddNewManufacturer\"></p>";
-        resp.getWriter().println(addManufacturerLink);
+
+        String welcomePageText = "<a href=\"/welcome\">WelcomePage</a>";
+
+        resp.getWriter().println(addManufacturerLink + "<br>" + welcomePageText);
+
     }
 
 }

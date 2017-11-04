@@ -5,6 +5,10 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
+    <servlet-name>welcome</servlet-name>
+    <jsp-file>/jsp/welcome.jsp</jsp-file>
+  </servlet>
+  <servlet>
     <servlet-name>ManufacturerController</servlet-name>
     <servlet-class>net.dybinka.controller.Manufacturer.ManufacturerController</servlet-class>
   </servlet>
@@ -44,6 +48,10 @@
     <servlet-name>delete-product-servlet</servlet-name>
     <servlet-class>net.dybinka.controller.Product.DeleteProductServlet</servlet-class>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>welcome</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ManufacturerController</servlet-name>
     <url-pattern>/manufacturer</url-pattern>
