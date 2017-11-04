@@ -11,7 +11,7 @@
     <title>Delete product</title>
 </head>
 <body>
-<h1 align="center">Product deleted!</h1>
+<h1>Product deleted!</h1>
 <p>
     <form action="listP">
     <p><input type="submit" value="ShowAllProduct"></p>

@@ -13,6 +13,7 @@ net\dybinka\dao\ManufacturerDAO.class
 net\dybinka\dao\GenericDAO.class
 net\dybinka\model\Manufacturer.class
 net\dybinka\controller\Manufacturer\DeleteManufacturerServlet.class
+net\dybinka\controller\Product\ProductControllerServlet.class
 net\dybinka\dao\hibernate\ManufacturerDAOImpl.class
 net\dybinka\dao\hibernate\ProductDAOImpl.class
 net\dybinka\dao\ProductDAO.class

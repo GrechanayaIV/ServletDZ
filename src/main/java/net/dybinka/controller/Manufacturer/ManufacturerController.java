@@ -17,24 +17,15 @@ import java.util.UUID;
 public class ManufacturerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    resp.setContentType("text/html");
+        resp.setContentType("text/html");
 
-        PrintWriter writer = resp.getWriter();
-        UUID uuid = UUID.fromString(req.getParameter("id"));
+        UUID uuid = UUID.fromString(req.getParameter("manufacturer_id"));
 
         Manufacturer manufacturer = DaoSingleton.getINSTANCE().getManufacturerDAO().getById(uuid);
 
-        writer.println("<html>" +
-                "<head>" +
-                "</head>" +
-                "<body>" +
-                "<h1>Manufacturer:</h1>" +
-                "<br/>" +
-                "ID:" + manufacturer.getId() +
-                "<br/>" +
-                "Name:" + manufacturer.getName() +
-                "<br/>" +
-                "</body>" +
-                "</html>");
+        req.setAttribute("manufacturerId", manufacturer.getId());
+        req.setAttribute("name", manufacturer.getName());
+
+        req.getRequestDispatcher("/jsp/manufacturer.jsp").forward(req, resp);
     }
 }

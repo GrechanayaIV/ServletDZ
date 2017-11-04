@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.List;
 
-public class AddProductServlet extends HttpServlet{
+public class AddProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("add_product.jsp").forward(req,resp);
+        req.getRequestDispatcher("/jsp/add_product.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html; charset=utf-8");
 
-        try{
+        try {
             String name = req.getParameter("name");
             BigDecimal price = new BigDecimal(Integer.valueOf(req.getParameter("price")));
             String manufacturerName = req.getParameter("manufacturer");
@@ -40,12 +42,12 @@ public class AddProductServlet extends HttpServlet{
             resp.getWriter().println("product added!<br><br>");
             resp.getWriter().println("<br>");
             //show link to see all product
-            String link = " <form action=\"listP\">\n" +
-                   "   <p><input type=\"submit\" value=Show All Product\"></p>\n" +
-                   "  </form>";
+            String link = "<form action=\"listP\">\n" +
+                    "<p><input type=\"submit\" value=\"ShowAllProduct\"></p>\n" +
+                    "</form>";
             resp.getWriter().println(link);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             //show more error for user
             resp.getWriter().println("Error in adding Product");
         }

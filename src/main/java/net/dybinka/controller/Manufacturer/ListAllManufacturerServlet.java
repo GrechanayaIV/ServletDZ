@@ -21,26 +21,22 @@ public class ListAllManufacturerServlet extends HttpServlet {
         List<Manufacturer> manufacturers = DaoSingleton.getINSTANCE().getManufacturerDAO().getAll();
 
         //Print all manufacturers as link
-        for(Manufacturer manufacturer: manufacturers){
-            String customerText = manufacturer.getName();
+        for (Manufacturer manufacturer : manufacturers) {
+            String manufacturerText = manufacturer.getName();
 
-            String editLinkManufacturer ="<a href=\"/editM?manufacturer_id=" + manufacturer.getId() + "\">EDIT</a>";
-                    //"<form action=\"/edit?manufacturer_id=" + manufacturer.getId() + "\">"+
-                      //      "<input type =\"submit\" value=EDIT>"+
-                        //    "</form>";
+            String editLinkManufacturer = "<a href=\"/editM?manufacturer_id=" + manufacturer.getId() + "\">EDIT</a>";
 
-            String deleteLinkManufacturer ="<a href=\"/deleteM?manufacturer_id=" + manufacturer.getId() + "\">DELETE</a>";
-                    //"<form action=\"/delete?manufacturer_id=" + manufacturer.getId() + "\">"+
-                      //      "<input type =\"submit\" value=DELETE>"+
-                        //    "</form>";
+            String deleteLinkManufacturer = "<a href=\"/deleteM?manufacturer_id=" + manufacturer.getId() + "\">DELETE</a>";
 
-            String finalLink = customerText +" " + editLinkManufacturer + " " + deleteLinkManufacturer;
+            String showLinkManufacturer = "<a href=\"/manufacturer?manufacturer_id=" + manufacturer.getId() + "\">SHOW</a>";
+
+            String finalLink = manufacturerText + " " + editLinkManufacturer + " " + deleteLinkManufacturer + " " + showLinkManufacturer;
 
 
             resp.getWriter().println(finalLink);
             resp.getWriter().println("<br><br>");
         }
-        String addManufacturerLink ="<form action=\"addM\">\n" +
+        String addManufacturerLink = "<form action=\"addM\">\n" +
                 "<p><input type=\"submit\" value=\"AddNewManufacturer\"></p>";
         resp.getWriter().println(addManufacturerLink);
     }

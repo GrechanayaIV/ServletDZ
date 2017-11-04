@@ -32,7 +32,7 @@ public class EditManufacturerServlet extends HttpServlet {
 
         //Show link to see all manufacturers
         String link = " <form action=\"listM\">\n" +
-                "   <p><input type=\"submit\" value=ShowAllManufacturer\"></p>\n" +
+                "   <p><input type=\"submit\" value=\"ShowAllManufacturer\"></p>\n" +
                 "  </form>";
         resp.getWriter().println(link);
     }
@@ -47,30 +47,9 @@ public class EditManufacturerServlet extends HttpServlet {
         String name = manufacturer.getName();
 
         req.setAttribute("manufacturerId", manufacturerId);
+        req.setAttribute("name", name);
 
-       /** req.getRequestDispatcher("edit_manufacturer.jsp").forward(req,resp);*/
-        //Make HTML form
-       String form = "<!DOCTYPE html>\n" +
-                "<html>\n" +
-                " <head>\n" +
-                "<meta charset=\"utf-8\"/>\n" +
-                "<title>Update manufacturer</title>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "<h2>Update manufacturer</h2>\n" +
-                "<form action=\"editM\" method=\"POST\" accept-charset=\"utf-8\">\n" +
-                "<p>New Name</p>\n" +
-                "<input type=\"text\" name=\"name\"/ value=\"" + name + "\">\n" +
-                "<input type=\"hidden\" name=\"manufacturer_id\" value=\"" +manufacturerIdStr + "\">" +
-                "<br>\n" +
-                "<input type=\"submit\" value=\"update\"/>\n" +
-                "</form>\n" +
-                "</body>\n" +
-                "</html>";
-
-
-        resp.setContentType("text/html; charset=utf-8");
-        resp.getWriter().println(form);
+        req.getRequestDispatcher("/jsp/edit_manufacturer.jsp").forward(req, resp);
 
     }
 }

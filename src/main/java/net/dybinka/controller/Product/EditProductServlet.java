@@ -21,7 +21,7 @@ public class EditProductServlet extends HttpServlet {
         UUID productId = UUID.fromString(productIdStr);
 
         String name = req.getParameter("name");
-        BigDecimal price = new BigDecimal(Integer.valueOf(req.getParameter("price")));
+        BigDecimal price = new BigDecimal(req.getParameter("price"));
         Manufacturer manufacturer = DaoSingleton.getINSTANCE().getManufacturerDAO().getByName(req.getParameter("manufacturer"));
 
         Product product = DaoSingleton.getINSTANCE().getProductDAO().getById(productId);
@@ -52,37 +52,14 @@ public class EditProductServlet extends HttpServlet {
         Product product = DaoSingleton.getINSTANCE().getProductDAO().getById(productId);
         String name = product.getName();
         String price = String.valueOf(product.getPrice());
-        Manufacturer manufacturer = product.getManufacturer();
-        String mName = manufacturer.getName();
+        String mName = product.getManufacturer().getName();
 
         req.setAttribute("productId", productId);
+        req.setAttribute("name", name);
+        req.setAttribute("price", price);
+        req.setAttribute("manufacturerName", mName);
 
-        //Make HTML form
-        String form = "<!DOCTYPE html>\n" +
-                "<html>\n" +
-                " <head>\n" +
-                "<meta charset=\"utf-8\"/>\n" +
-                "<title>Update product</title>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "<h2>Update product</h2>\n" +
-                "<form action=\"editP\" method=\"POST\" accept-charset=\"utf-8\">\n" +
-                "<p>New Name</p>\n" +
-                "<input type=\"text\" name=\"name\"/ value=\"" + name + "\">\n" +
-                "<p>New Price</p>\n" +
-                "<input type=\"text\" name=\"price\"/ value=\"" + price +"\">\n" +
-                "<p>New Manufacture</p>" +
-                "<input type=\"text\" name=\"manufacturer\"/ value=\"" + mName +"\">\n"+
-                "<input type=\"hidden\" name=\"product_id\" value=\"" + productIdStr + "\">" +
-                "<br>\n" +
-                "<input type=\"submit\" value=\"update\"/>\n" +
-                "</form>\n" +
-                "</body>\n" +
-                "</html>";
-
-
-        resp.setContentType("text/html; charset=utf-8");
-        resp.getWriter().println(form);
+        req.getRequestDispatcher("/jsp/edit_product.jsp").forward(req, resp);
 
     }
 }

@@ -42,6 +42,7 @@ public class ProductDAOImpl implements ProductDAO {
         transaction.commit();
         session.close();
     }
+
     @SuppressWarnings("unchecked")
     public List<Product> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();

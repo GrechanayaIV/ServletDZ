@@ -17,30 +17,26 @@ public class ListAllProductServlet extends HttpServlet {
         resp.setContentType("text/html; charset=utf-8");
 
         //Get all Products
-        List<Product>products = DaoSingleton.getINSTANCE().getProductDAO().getAll();
+        List<Product> products = DaoSingleton.getINSTANCE().getProductDAO().getAll();
 
         //Print all products as link
-        for(Product product: products) {
+        for (Product product : products) {
             String productText = product.getName();
 
             String editLinkProduct = "<a href=\"/editP?product_id=" + product.getId() + "\">EDIT</a>";
-            //"<form action=\"/editP?product_id=" + product.getId() + "\">"+
-            //      "<input type =\"submit\" value=EDIT>"+
-            //    "</form>";
 
             String deleteLinkProduct = "<a href=\"/deleteP?product_id=" + product.getId() + "\">DELETE</a>";
-            //"<form action=\"/deleteP?product_id=" + product.getId() + "\">"+
-            //      "<input type =\"submit\" value=DELETE>"+
-            //    "</form>";
 
-            String finalLink = productText + " " + editLinkProduct + " " + deleteLinkProduct;
+            String showLinkProduct = "<a href=\"/product?product_id=" + product.getId() + "\">SHOW</a>";
+
+            String finalLink = productText + " " + editLinkProduct + " " + deleteLinkProduct + " " + showLinkProduct;
 
 
             resp.getWriter().println(finalLink);
             resp.getWriter().println("<br><br>");
         }
-          String addProductLink ="<form action=\"addP\">\n" +
-                  "<p><input type=\"submit\" value=\"AddNewProduct\"></p>";
+        String addProductLink = "<form action=\"addP\">\n" +
+                "<p><input type=\"submit\" value=\"AddNewProduct\"></p>";
         resp.getWriter().println(addProductLink);
     }
 }

@@ -2,6 +2,7 @@ C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\dao\hibernate\P
 C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\controller\Product\DeleteProductServlet.java
 C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\controller\Manufacturer\ListAllManufacturerServlet.java
 C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\model\Manufacturer.java
+C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\controller\Product\ProductControllerServlet.java
 C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\controller\Product\ListAllProductServlet.java
 C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\dao\hibernate\HibernateUtil.java
 C:\Users\Inna\IdeaProjects\goitServlet\src\main\java\net\dybinka\dao\ProductDAO.java

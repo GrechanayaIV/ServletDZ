@@ -22,7 +22,7 @@ public class DeleteManufacturerServlet extends HttpServlet {
         Manufacturer manufacturer = DaoSingleton.getINSTANCE().getManufacturerDAO().getById(manufacturerId);
         DaoSingleton.getINSTANCE().getManufacturerDAO().delete(manufacturer);
         //Show some feedback for user
-        req.getRequestDispatcher("delete_manufacturer.jsp").forward(req,resp);
+        req.getRequestDispatcher("/jsp/delete_manufacturer.jsp").forward(req, resp);
 
     }
 }

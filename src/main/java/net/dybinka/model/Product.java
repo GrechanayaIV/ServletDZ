@@ -20,7 +20,7 @@ public class Product {
     private String name;
     @Column(name = "price")
     private BigDecimal price;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
