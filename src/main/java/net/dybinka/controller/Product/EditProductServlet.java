@@ -37,9 +37,9 @@ public class EditProductServlet extends HttpServlet {
         resp.getWriter().println("<br>");
 
         //Show link to see all product
-        String link = " <form action=\"listP\">\n" +
-                "   <p><input type=\"submit\" value=\"ShowAllProduct\"></p>\n" +
-                "  </form>";
+        String link = "<form action=\"listP\">\n" +
+                "<p><input type=\"submit\" value=\"ShowAllProduct\"></p>\n" +
+                "</form>";
         resp.getWriter().println(link);
     }
 
