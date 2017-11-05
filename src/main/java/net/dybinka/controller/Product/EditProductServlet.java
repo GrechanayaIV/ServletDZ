@@ -33,8 +33,7 @@ public class EditProductServlet extends HttpServlet {
 
         //Show some feedback for user
         resp.getWriter().println("Product updated!");
-        resp.getWriter().println("<br>");
-        resp.getWriter().println("<br>");
+        resp.getWriter().println("<br><br>");
 
         //Show link to see all product
         String link = "<form action=\"listP\">\n" +
@@ -51,7 +50,7 @@ public class EditProductServlet extends HttpServlet {
         //Get product data
         Product product = DaoSingleton.getINSTANCE().getProductDAO().getById(productId);
         String name = product.getName();
-        String price = String.valueOf(product.getPrice());
+        BigDecimal price = product.getPrice();
         String mName = product.getManufacturer().getName();
 
         req.setAttribute("productId", productId);

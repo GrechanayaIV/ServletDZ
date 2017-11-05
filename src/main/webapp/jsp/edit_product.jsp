@@ -19,6 +19,7 @@
 %>
 <h2>Edit product</h2>
 <form action="editP" method="post">
+    <input type="hidden" name="product_id" value="<%=request.getAttribute("productId")%>">
     <p>Input new Name</p>
     <input type="text" name="name" value="<%=request.getAttribute("name")%>">
     <p>Input new Price</p>
@@ -35,7 +36,6 @@
     </select>
     <br>
     <br>
-    <input type="hidden" name="product_id" value="<%=request.getAttribute("productId")%>">
     <input type="submit" value="update"/>
 </form>
 

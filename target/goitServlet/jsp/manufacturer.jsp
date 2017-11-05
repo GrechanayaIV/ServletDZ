@@ -11,7 +11,7 @@
     <title>Manufacturer</title>
 </head>
 <body>
-<h1>Product:</h1>
+<h1>Manufacturer:</h1>
 <br/>
 <p>ID: <%=request.getAttribute("manufacturerId")%>
     <br/>

@@ -15,7 +15,7 @@ public class Manufacturer {
     private UUID id;
     @Column(name = "name")
     private String name;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "manufacturer")
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE, CascadeType.REFRESH}, mappedBy = "manufacturer")
     private Set<Product> products;
 
     public Manufacturer() {
